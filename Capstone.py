@@ -325,7 +325,7 @@ len(df)
 
 # ## Algorithm/Estimator
 
-# In[ ]:
+# In[281]:
 
 
 # Import algorithm/estimator
@@ -350,31 +350,31 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
-# In[ ]:
+# In[282]:
 
 
 model.get_params()
 
 
-# In[ ]:
+# In[283]:
 
 
 model.fit(X_train, y_train);
 
 
-# In[ ]:
+# In[284]:
 
 
 y_preds = model.predict(X_test)
 
 
-# In[ ]:
+# In[285]:
 
 
 model.score(X_test, y_test)
 
 
-# In[ ]:
+# In[286]:
 
 
 # Try Ridge Regression
@@ -388,13 +388,13 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 
-# In[ ]:
+# In[287]:
 
 
 model.get_params()
 
 
-# In[ ]:
+# In[288]:
 
 
 from sklearn import linear_model
@@ -407,20 +407,20 @@ model.score(X_test, y_test)
 
 # ## Make Predictions Using Machine Language Model
 
-# In[ ]:
+# In[289]:
 
 
 test_data = pd.read_csv("New Data/oura_2023-09-17_2023-09-17_trends.csv")
 
 
-# In[ ]:
+# In[290]:
 
 
 test_data.drop(test_data.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 test_data.info()
 
 
-# In[ ]:
+# In[291]:
 
 
 ## Remove Readiness Score
@@ -428,54 +428,54 @@ test_data.drop(test_data.columns[2], axis=1, inplace=True)
 test_data.info()
 
 
-# In[ ]:
+# In[292]:
 
 
 test_data.info()
 
 
-# In[ ]:
+# In[293]:
 
 
 ## Convert Total Sleep Duration to hours
 test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 
 
-# In[ ]:
+# In[294]:
 
 
-values = st.slider(
-    'Select a range of values',
-    0.0, 100.0, (25.0, 75.0))
-st.write('Values:', values)
+value = st.slider(
+    'Select a estimated sleep',
+    4.0, 12.0, 8.0)
+st.write('Estimated Sleep:', value)
 
 
-# In[ ]:
+# In[295]:
 
 
 sleep_hours_pred = float(input("How many hours of planned sleep? "))
 print(sleep_hours_pred)
 
 
-# In[ ]:
+# In[296]:
 
 
 test_data
 
 
-# In[ ]:
+# In[297]:
 
 
 test_data["Total Sleep Duration"] = sleep_hours_pred
 test_data
 
 
-# In[ ]:
+# In[298]:
 
 
 model.predict(test_data)
 
 
-# In[ ]:
+# In[299]:
 
 
