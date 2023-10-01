@@ -1,18 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[134]:
+# In[4]:
 
 
 import pandas as pd
 import numpy as np
 # import matplot lib
-get_ipython().run_line_magic('matplotlib', 'inline')
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 import streamlit as st
 
 
-# In[135]:
+# In[5]:
 
 
 st.text('Fixed width text')
@@ -31,7 +30,7 @@ st.code('for i in range(8): foo()')
 
 # ## Import data
 
-# In[136]:
+# In[6]:
 
 
 # Import Data
@@ -40,7 +39,7 @@ health_data = pd.read_csv("New Data/oura_2019-01-01_2023-09-09_trends_Original.c
 
 # ## View data
 
-# In[137]:
+# In[7]:
 
 
 health_data
@@ -48,7 +47,7 @@ health_data
 
 # ## Describe Data
 
-# In[138]:
+# In[8]:
 
 
 # Attribute
@@ -57,13 +56,13 @@ health_data.dtypes
 
 # ## Set up dataframe
 
-# In[139]:
+# In[9]:
 
 
 df = pd.DataFrame(health_data)
 
 
-# In[140]:
+# In[10]:
 
 
 df.info()
@@ -77,7 +76,7 @@ df.info()
 
 # ## Convert Sleep Duration and Rest Time to hours
 
-# In[141]:
+# In[11]:
 
 
 df["Total Sleep Duration"] = df["Total Sleep Duration"] / 3600
@@ -86,13 +85,13 @@ df["Rest Time"] = df["Rest Time"] / 3600
 df["Total Sleep Duration"], df["Rest Time"]
 
 
-# In[142]:
+# In[12]:
 
 
 pd.crosstab(df["Total Sleep Duration"] > 7, df["Readiness Score"] >85)
 
 
-# In[143]:
+# In[13]:
 
 
 df["Readiness Score"].hist(figsize=(10, 10))
@@ -100,26 +99,26 @@ df["Readiness Score"].hist(figsize=(10, 10))
 
 # ## Manipulating Data
 
-# In[144]:
+# In[14]:
 
 
 df.dropna(inplace=True)
 
 
-# In[145]:
+# In[15]:
 
 
 df.info()
 
 
-# In[146]:
+# In[16]:
 
 
 # Randomize data 1 = 100%
 df.sample(frac=1)
 
 
-# In[147]:
+# In[17]:
 
 
 # Reset index if necessary
@@ -128,7 +127,7 @@ df.sample(frac=1)
 
 # ## Matplotlib flow
 
-# In[148]:
+# In[18]:
 
 
 # 1. Prepare data
@@ -150,7 +149,7 @@ ax.set(title="Simple Plot",
 # fig.savefig("C:/Users/McLovin/OneDrive/Desktop/Capstone/New Data/Images/Figure_1.png")
 
 
-# In[149]:
+# In[19]:
 
 
 # 1. Prepare data
@@ -172,7 +171,7 @@ ax.set(title="Simple Plot",
 # fig.savefig("C:/Users/McLovin/OneDrive/Desktop/Capstone/New Data/Images/Figure_2.png")
 
 
-# In[150]:
+# In[20]:
 
 
 # 1. Prepare data
@@ -194,7 +193,7 @@ ax.set(title="Simple Plot",
 # fig.savefig("C:/Users/McLovin/OneDrive/Desktop/Capstone/New Data/Images/Figure_1.png")
 
 
-# In[151]:
+# In[21]:
 
 
 # 1. Prepare data
@@ -216,7 +215,7 @@ ax.set(title="Simple Plot",
 # fig.savefig("C:/Users/McLovin/OneDrive/Desktop/Capstone/New Data/Images/Figure_1.png")
 
 
-# In[152]:
+# In[22]:
 
 
 # 1. Prepare data
@@ -238,7 +237,7 @@ ax.set(title="Simple Plot",
 # fig.savefig("C:/Users/McLovin/OneDrive/Desktop/Capstone/New Data/Images/Figure_1.png")
 
 
-# In[153]:
+# In[23]:
 
 
 # 1. Prepare data
@@ -262,32 +261,32 @@ ax.set(title="Simple Plot",
 
 # ## Remove data columns that are lagging data fields or not necessary
 
-# In[154]:
+# In[24]:
 
 
 df.drop(df.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[155]:
+# In[25]:
 
 
 df.info()
 
 
-# In[156]:
+# In[26]:
 
 
 df.describe()
 
 
-# In[157]:
+# In[27]:
 
 
 # Average Readiness Score
 df["Readiness Score"].mean()
 
 
-# In[158]:
+# In[28]:
 
 
 len(df)
@@ -295,7 +294,7 @@ len(df)
 
 # ## Algorithm/Estimator
 
-# In[159]:
+# In[29]:
 
 
 # Import algorithm/estimator
@@ -320,31 +319,31 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
-# In[160]:
+# In[30]:
 
 
 model.get_params()
 
 
-# In[161]:
+# In[31]:
 
 
 model.fit(X_train, y_train);
 
 
-# In[162]:
+# In[32]:
 
 
 y_preds = model.predict(X_test)
 
 
-# In[163]:
+# In[33]:
 
 
 model.score(X_test, y_test)
 
 
-# In[164]:
+# In[34]:
 
 
 # Try Ridge Regression
@@ -358,13 +357,13 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 
-# In[165]:
+# In[35]:
 
 
 model.get_params()
 
 
-# In[166]:
+# In[36]:
 
 
 from sklearn import linear_model
@@ -377,20 +376,20 @@ model.score(X_test, y_test)
 
 # ## Make Predictions Using Machine Language Model
 
-# In[167]:
+# In[37]:
 
 
 test_data = pd.read_csv("New Data/oura_2023-09-17_2023-09-17_trends.csv")
 
 
-# In[168]:
+# In[38]:
 
 
 test_data.drop(test_data.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 test_data.info()
 
 
-# In[169]:
+# In[39]:
 
 
 ## Remove Readiness Score
@@ -398,13 +397,13 @@ test_data.drop(test_data.columns[2], axis=1, inplace=True)
 test_data.info()
 
 
-# In[170]:
+# In[40]:
 
 
 test_data.info()
 
 
-# In[171]:
+# In[41]:
 
 
 ## Convert Total Sleep Duration to hours
