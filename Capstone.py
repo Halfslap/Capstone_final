@@ -11,6 +11,36 @@ from matplotlib import pyplot as plt
 import streamlit as st
 
 
+# In[50]:
+
+
+pd.__version__
+
+
+# In[ ]:
+
+
+np.__version__
+
+
+# In[52]:
+
+
+plt.__file__
+
+
+# In[53]:
+
+
+st.__version__
+
+
+# In[ ]:
+
+
+
+
+
 # In[5]:
 
 
@@ -410,32 +440,32 @@ test_data.info()
 test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 
 
-# In[ ]:
+# In[42]:
 
 
 sleep_hours_pred = float(input("How many hours of planned sleep? "))
 print(sleep_hours_pred)
 
 
-# In[ ]:
+# In[43]:
 
 
 test_data
 
 
-# In[ ]:
+# In[44]:
 
 
 test_data["Total Sleep Duration"] = sleep_hours_pred
 test_data
 
 
-# In[ ]:
+# In[45]:
 
 
 model.predict(test_data)
 
 
-# In[ ]:
+# In[46]:
 
 
