@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[54]:
+# In[101]:
 
 
 import pandas as pd
@@ -13,7 +13,7 @@ from plotly import graph_objects
 import streamlit as st
 
 
-# In[ ]:
+# In[102]:
 
 
 ##st.text('Fixed width text')
@@ -29,33 +29,39 @@ st.header('Student ID: 001411596')
 ##st.code('for i in range(8): foo()')
 
 
-# In[55]:
+# In[148]:
 
 
-pd.__version__
+print("Pandas version: ", pd.__version__)
 
 
-# In[56]:
+# In[104]:
 
 
-np.__version__
+print("Numpy version: ", np.__version__)
 
 
-# In[57]:
+# In[150]:
 
 
-plt.__file__
+print("Streamlit version: ", st.__version__)
 
 
-# In[58]:
+# In[152]:
 
 
-st.__version__
+print("Matplotlib version: ", matplotlib.__version__)
 
 
 # ## Import data
 
-# In[60]:
+# In[153]:
+
+
+st.header('Imported Data')
+
+
+# In[107]:
 
 
 # Import Data
@@ -64,7 +70,7 @@ health_data = pd.read_csv("New Data/oura_2019-01-01_2023-09-09_trends_Original.c
 
 # ## View data
 
-# In[61]:
+# In[108]:
 
 
 health_data
@@ -72,7 +78,7 @@ health_data
 
 # ## Describe Data
 
-# In[62]:
+# In[109]:
 
 
 # Attribute
@@ -81,13 +87,13 @@ health_data.dtypes
 
 # ## Set up dataframe
 
-# In[63]:
+# In[110]:
 
 
 df = pd.DataFrame(health_data)
 
 
-# In[64]:
+# In[111]:
 
 
 df.info()
@@ -101,7 +107,7 @@ df.info()
 
 # ## Convert Sleep Duration and Rest Time to hours
 
-# In[65]:
+# In[112]:
 
 
 df["Total Sleep Duration"] = df["Total Sleep Duration"] / 3600
@@ -110,13 +116,13 @@ df["Rest Time"] = df["Rest Time"] / 3600
 df["Total Sleep Duration"], df["Rest Time"]
 
 
-# In[66]:
+# In[113]:
 
 
 pd.crosstab(df["Total Sleep Duration"] > 7, df["Readiness Score"] >85)
 
 
-# In[67]:
+# In[114]:
 
 
 df["Readiness Score"].hist(figsize=(10, 10))
@@ -124,26 +130,26 @@ df["Readiness Score"].hist(figsize=(10, 10))
 
 # ## Manipulating Data
 
-# In[68]:
+# In[115]:
 
 
 df.dropna(inplace=True)
 
 
-# In[69]:
+# In[116]:
 
 
 df.info()
 
 
-# In[70]:
+# In[117]:
 
 
 # Randomize data 1 = 100%
 df.sample(frac=1)
 
 
-# In[71]:
+# In[118]:
 
 
 # Reset index if necessary
@@ -152,7 +158,7 @@ df.sample(frac=1)
 
 # ## Matplotlib flow
 
-# In[72]:
+# In[119]:
 
 
 # 1. Prepare data
@@ -174,7 +180,7 @@ ax.set(title="Simple Plot",
 # fig.savefig("C:/Users/McLovin/OneDrive/Desktop/Capstone/New Data/Images/Figure_1.png")
 
 
-# In[73]:
+# In[120]:
 
 
 # 1. Prepare data
@@ -196,7 +202,7 @@ ax.set(title="Simple Plot",
 # fig.savefig("C:/Users/McLovin/OneDrive/Desktop/Capstone/New Data/Images/Figure_2.png")
 
 
-# In[74]:
+# In[121]:
 
 
 # 1. Prepare data
@@ -218,7 +224,7 @@ ax.set(title="Simple Plot",
 # fig.savefig("C:/Users/McLovin/OneDrive/Desktop/Capstone/New Data/Images/Figure_1.png")
 
 
-# In[75]:
+# In[122]:
 
 
 # 1. Prepare data
@@ -240,7 +246,7 @@ ax.set(title="Simple Plot",
 # fig.savefig("C:/Users/McLovin/OneDrive/Desktop/Capstone/New Data/Images/Figure_1.png")
 
 
-# In[76]:
+# In[123]:
 
 
 # 1. Prepare data
@@ -262,7 +268,7 @@ ax.set(title="Simple Plot",
 # fig.savefig("C:/Users/McLovin/OneDrive/Desktop/Capstone/New Data/Images/Figure_1.png")
 
 
-# In[77]:
+# In[124]:
 
 
 # 1. Prepare data
@@ -286,32 +292,32 @@ ax.set(title="Simple Plot",
 
 # ## Remove data columns that are lagging data fields or not necessary
 
-# In[78]:
+# In[125]:
 
 
 df.drop(df.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[79]:
+# In[126]:
 
 
 df.info()
 
 
-# In[80]:
+# In[127]:
 
 
 df.describe()
 
 
-# In[81]:
+# In[128]:
 
 
 # Average Readiness Score
 df["Readiness Score"].mean()
 
 
-# In[82]:
+# In[129]:
 
 
 len(df)
@@ -319,7 +325,7 @@ len(df)
 
 # ## Algorithm/Estimator
 
-# In[83]:
+# In[130]:
 
 
 # Import algorithm/estimator
@@ -344,31 +350,31 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
-# In[84]:
+# In[131]:
 
 
 model.get_params()
 
 
-# In[85]:
+# In[132]:
 
 
 model.fit(X_train, y_train);
 
 
-# In[86]:
+# In[133]:
 
 
 y_preds = model.predict(X_test)
 
 
-# In[87]:
+# In[134]:
 
 
 model.score(X_test, y_test)
 
 
-# In[88]:
+# In[135]:
 
 
 # Try Ridge Regression
@@ -382,13 +388,13 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 
-# In[89]:
+# In[136]:
 
 
 model.get_params()
 
 
-# In[90]:
+# In[137]:
 
 
 from sklearn import linear_model
@@ -401,20 +407,20 @@ model.score(X_test, y_test)
 
 # ## Make Predictions Using Machine Language Model
 
-# In[91]:
+# In[138]:
 
 
 test_data = pd.read_csv("New Data/oura_2023-09-17_2023-09-17_trends.csv")
 
 
-# In[92]:
+# In[139]:
 
 
 test_data.drop(test_data.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 test_data.info()
 
 
-# In[93]:
+# In[140]:
 
 
 ## Remove Readiness Score
@@ -422,45 +428,45 @@ test_data.drop(test_data.columns[2], axis=1, inplace=True)
 test_data.info()
 
 
-# In[94]:
+# In[141]:
 
 
 test_data.info()
 
 
-# In[95]:
+# In[142]:
 
 
 ## Convert Total Sleep Duration to hours
 test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 
 
-# In[96]:
+# In[143]:
 
 
 sleep_hours_pred = float(input("How many hours of planned sleep? "))
 print(sleep_hours_pred)
 
 
-# In[97]:
+# In[144]:
 
 
 test_data
 
 
-# In[98]:
+# In[145]:
 
 
 test_data["Total Sleep Duration"] = sleep_hours_pred
 test_data
 
 
-# In[99]:
+# In[146]:
 
 
 model.predict(test_data)
 
 
-# In[100]:
+# In[147]:
 
 
