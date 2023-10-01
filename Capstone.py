@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[158]:
+# In[1]:
 
 
 import pandas as pd
@@ -13,37 +13,31 @@ from plotly import graph_objects
 import streamlit as st
 
 
-# In[159]:
+# In[2]:
 
 
 pd.__version__
 
 
-# In[160]:
+# In[3]:
 
 
 np.__version__
 
 
-# In[161]:
+# In[4]:
 
 
 plt.__file__
 
 
-# In[162]:
+# In[5]:
 
 
 st.__version__
 
 
-# In[163]:
-
-
-model.__getstate__()['_sklearn_version']
-
-
-# In[164]:
+# In[ ]:
 
 
 st.text('Fixed width text')
@@ -62,7 +56,7 @@ st.code('for i in range(8): foo()')
 
 # ## Import data
 
-# In[165]:
+# In[ ]:
 
 
 # Import Data
@@ -71,7 +65,7 @@ health_data = pd.read_csv("New Data/oura_2019-01-01_2023-09-09_trends_Original.c
 
 # ## View data
 
-# In[166]:
+# In[ ]:
 
 
 health_data
@@ -79,7 +73,7 @@ health_data
 
 # ## Describe Data
 
-# In[167]:
+# In[ ]:
 
 
 # Attribute
@@ -88,13 +82,13 @@ health_data.dtypes
 
 # ## Set up dataframe
 
-# In[168]:
+# In[ ]:
 
 
 df = pd.DataFrame(health_data)
 
 
-# In[169]:
+# In[ ]:
 
 
 df.info()
@@ -108,7 +102,7 @@ df.info()
 
 # ## Convert Sleep Duration and Rest Time to hours
 
-# In[170]:
+# In[ ]:
 
 
 df["Total Sleep Duration"] = df["Total Sleep Duration"] / 3600
@@ -117,7 +111,7 @@ df["Rest Time"] = df["Rest Time"] / 3600
 df["Total Sleep Duration"], df["Rest Time"]
 
 
-# In[171]:
+# In[ ]:
 
 
 pd.crosstab(df["Total Sleep Duration"] > 7, df["Readiness Score"] >85)
