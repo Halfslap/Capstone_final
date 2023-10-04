@@ -160,7 +160,7 @@ ax.set(title="Simple Plot",
        ylabel="Readiness Score")
 
 # 5. Save and show (you save the whole figure)
-fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_1.png")
+fig.savefig("Figures/Figure_1.png")
 
 
 # In[398]:
@@ -183,7 +183,7 @@ ax.set(title="Simple Plot",
        ylabel="Readiness Score")
 
 # 5. Save and show (you save the whole figure)
-fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_2.png")
+fig.savefig("Figures/Figure_2.png")
 
 
 # In[399]:
@@ -205,7 +205,7 @@ ax.set(title="Simple Plot",
        ylabel="Readiness Score")
 
 # 5. Save and show (you save the whole figure)
-fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_3.png")
+fig.savefig("Figures/Figure_3.png")
 
 
 # In[400]:
@@ -227,7 +227,7 @@ ax.set(title="Simple Plot",
        ylabel="Readiness Score")
 
 # 5. Save and show (you save the whole figure)
-fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_4.png")
+fig.savefig("Figures/Figure_4.png")
 
 
 # In[401]:
@@ -249,7 +249,7 @@ ax.set(title="Simple Plot",
        ylabel="Readiness Score")
 
 # 5. Save and show (you save the whole figure)
-fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_5.png")
+fig.savefig("Figures/Figure_5.png")
 
 
 # In[402]:
@@ -271,7 +271,7 @@ ax.set(title="Simple Plot",
        ylabel="Readiness Score")
 
 # 5. Save and show (you save the whole figure)
-fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_6.png")
+fig.savefig("Figures/Figure_6.png")
 
 
 # In[403]:
@@ -293,7 +293,7 @@ ax.set(title="Simple Plot",
        ylabel="Readiness Score")
 
 # 5. Save and show (you save the whole figure)
-fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_7.png")
+fig.savefig("Figures/Figure_7.png")
 
 
 # In[404]:
@@ -315,7 +315,7 @@ ax.set(title="Simple Plot",
        ylabel="Readiness Score")
 
 # 5. Save and show (you save the whole figure)
-fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_8.png")
+fig.savefig("Figures/Figure_8.png")
 
 
 # In[405]:
@@ -337,7 +337,7 @@ ax.set(title="Simple Plot",
        ylabel="Readiness Score")
 
 # 5. Save and show (you save the whole figure)
-fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_9.png")
+fig.savefig("Figures/Figure_9.png")
 
 
 # In[406]:
@@ -359,15 +359,15 @@ ax.set(title="Simple Plot",
        ylabel="Readiness Score")
 
 # 5. Save and show (you save the whole figure)
-fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_10.png")
+fig.savefig("Figures/Figure_10.png")
 
 
 # In[407]:
 
 
-#st.image('Figures/Figure_1.png')
-#st.image('Figures/Figure_8.png')
-#st.image('Figures/Figure_10.png')
+st.image('Figures/Figure_1.png')
+st.image('Figures/Figure_8.png')
+st.image('Figures/Figure_10.png')
 
 
 # ## Remove data columns that are lagging data fields or not necessary
@@ -563,6 +563,6 @@ test_data
 model.predict(test_data)
 
 
-# In[ ]:
+# In[432]:
 
 
