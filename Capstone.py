@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[852]:
+# In[959]:
 
 
 import pandas as pd
@@ -13,7 +13,7 @@ from plotly import graph_objects
 import streamlit as st
 
 
-# In[853]:
+# In[960]:
 
 
 ##st.text('Fixed width text')
@@ -29,28 +29,28 @@ st.header('Student ID: 001411596')
 ##st.code('for i in range(8): foo()')
 
 
-# In[854]:
+# In[961]:
 
 
 pd_ver = pd.__version__
 st.write("Pandas version: ", pd_ver)
 
 
-# In[855]:
+# In[962]:
 
 
 np_ver = np.__version__
 st.write("Numpy version: ", np_ver)
 
 
-# In[856]:
+# In[963]:
 
 
 st_ver = st.__version__
 st.write("Streamlit version: ", st_ver)
 
 
-# In[857]:
+# In[964]:
 
 
 plt_ver = matplotlib.__version__
@@ -59,7 +59,7 @@ st.write("Matplotlib version: ", plt_ver)
 
 # ## Import data
 
-# In[858]:
+# In[965]:
 
 
 # Import Data
@@ -68,13 +68,13 @@ health_data = pd.read_csv("New Data/oura_2019-01-01_2023-09-09_trends_Original.c
 
 # ## View data
 
-# In[859]:
+# In[966]:
 
 
 st.header('Imported Data')
 
 
-# In[860]:
+# In[967]:
 
 
 health_data
@@ -82,7 +82,7 @@ health_data
 
 # ## Describe Data
 
-# In[861]:
+# In[968]:
 
 
 # health_data.dtypes;
@@ -90,7 +90,7 @@ health_data
 
 # ## Set up dataframe
 
-# In[862]:
+# In[969]:
 
 
 df = pd.DataFrame(health_data)
@@ -98,20 +98,20 @@ df = pd.DataFrame(health_data)
 
 # ## Convert Sleep Duration and Rest Time to hours
 
-# In[863]:
+# In[970]:
 
 
 df["Total Sleep Duration"] = df["Total Sleep Duration"] / 3600
 df["Rest Time"] = df["Rest Time"] / 3600
 
 
-# In[864]:
+# In[971]:
 
 
 pd.crosstab(df["Total Sleep Duration"] > 7, df["Readiness Score"] >85)
 
 
-# In[865]:
+# In[972]:
 
 
 df["Readiness Score"].hist(figsize=(10, 10))
@@ -119,20 +119,20 @@ df["Readiness Score"].hist(figsize=(10, 10))
 
 # ## Manipulating Data
 
-# In[866]:
+# In[973]:
 
 
 df.dropna(inplace=True)
 
 
-# In[867]:
+# In[974]:
 
 
 # Randomize data 1 = 100%
 df.sample(frac=1)
 
 
-# In[868]:
+# In[975]:
 
 
 # Reset index if necessary
@@ -141,7 +141,7 @@ df.sample(frac=1)
 
 # ## Matplotlib
 
-# In[869]:
+# In[976]:
 
 
 # 1. Prepare data
@@ -163,7 +163,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_1.png")
 
 
-# In[870]:
+# In[977]:
 
 
 # 1. Prepare data
@@ -186,7 +186,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_2.png")
 
 
-# In[871]:
+# In[978]:
 
 
 # 1. Prepare data
@@ -208,7 +208,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_3.png")
 
 
-# In[872]:
+# In[979]:
 
 
 # 1. Prepare data
@@ -230,7 +230,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_4.png")
 
 
-# In[873]:
+# In[980]:
 
 
 # 1. Prepare data
@@ -252,7 +252,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_5.png")
 
 
-# In[874]:
+# In[981]:
 
 
 # 1. Prepare data
@@ -274,7 +274,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_6.png")
 
 
-# In[875]:
+# In[982]:
 
 
 # 1. Prepare data
@@ -296,7 +296,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_7.png")
 
 
-# In[876]:
+# In[983]:
 
 
 # 1. Prepare data
@@ -318,7 +318,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_8.png")
 
 
-# In[877]:
+# In[984]:
 
 
 # 1. Prepare data
@@ -340,7 +340,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_9.png")
 
 
-# In[878]:
+# In[985]:
 
 
 # 1. Prepare data
@@ -362,7 +362,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_10.png")
 
 
-# In[879]:
+# In[986]:
 
 
 st.image('Figures/Figure_1.png')
@@ -372,32 +372,32 @@ st.image('Figures/Figure_10.png')
 
 # ## Remove data columns that are lagging data fields or not necessary
 
-# In[880]:
+# In[987]:
 
 
 df.drop(df.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[881]:
+# In[988]:
 
 
 df.info()
 
 
-# In[882]:
+# In[989]:
 
 
 df.describe()
 
 
-# In[883]:
+# In[990]:
 
 
 # Average Readiness Score
 df["Readiness Score"].mean()
 
 
-# In[884]:
+# In[991]:
 
 
 len(df)
@@ -405,7 +405,7 @@ len(df)
 
 # ## Algorithm/Estimator
 
-# In[885]:
+# In[992]:
 
 
 # Import algorithm/estimator
@@ -430,31 +430,31 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
-# In[886]:
+# In[993]:
 
 
 model.get_params()
 
 
-# In[887]:
+# In[994]:
 
 
 model.fit(X_train, y_train);
 
 
-# In[888]:
+# In[995]:
 
 
 y_preds = model.predict(X_test)
 
 
-# In[889]:
+# In[996]:
 
 
 model.score(X_test, y_test)
 
 
-# In[890]:
+# In[997]:
 
 
 # Try Ridge Regression
@@ -468,13 +468,13 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 
-# In[891]:
+# In[998]:
 
 
 model.get_params()
 
 
-# In[892]:
+# In[999]:
 
 
 from sklearn import linear_model
@@ -487,20 +487,20 @@ model.score(X_test, y_test)
 
 # ## Make Predictions Using Machine Language Model
 
-# In[893]:
+# In[1000]:
 
 
 test_data = pd.read_csv("New Data/oura_2023-09-17_2023-09-17_trends.csv")
 
 
-# In[894]:
+# In[1001]:
 
 
 test_data.drop(test_data.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 test_data.info()
 
 
-# In[895]:
+# In[1002]:
 
 
 ## Remove Readiness Score
@@ -508,20 +508,20 @@ test_data.drop(test_data.columns[2], axis=1, inplace=True)
 test_data.info()
 
 
-# In[896]:
+# In[1003]:
 
 
 test_data.info()
 
 
-# In[897]:
+# In[1004]:
 
 
 ## Convert Total Sleep Duration to hours
 test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 
 
-# In[898]:
+# In[ ]:
 
 
 value = st.slider(
@@ -531,44 +531,50 @@ st.write('Estimated Sleep:', value)
 test_data["Total Sleep Duration"] = value
 
 
-# In[899]:
+# In[ ]:
 
 
 ##st.write('Based on your estimated sleep, your readiness score is prediced to be: ', model.predict(test_data))
 st.header('Based on your estimated sleep, your readiness score is prediced to be: ')
-st.markdown(""" <style> .font {font-size:50px ; font-family: 'Cooper Black'; color: #FF9633;} 
-</style> """, unsafe_allow_html=True)
-st.markdown('<p class="font">Guess the object Names</p>', unsafe_allow_html=True)
+st.markdown("""
+<style>
+.big-font {
+    font-size:300px !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown('<p class="big-font">model.predict(test_data)/p>', unsafe_allow_html=True)
 
 st.markdown(model.predict(test_data))
 
 
-# In[900]:
+# In[ ]:
 
 
 sleep_hours_pred = float(input("How many hours of planned sleep? "))
 print(sleep_hours_pred)
 
 
-# In[901]:
+# In[ ]:
 
 
 test_data
 
 
-# In[902]:
+# In[ ]:
 
 
 test_data["Total Sleep Duration"] = sleep_hours_pred
 test_data
 
 
-# In[903]:
+# In[ ]:
 
 
 model.predict(test_data)
 
 
-# In[904]:
+# In[ ]:
 
 
