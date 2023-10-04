@@ -521,7 +521,7 @@ test_data.info()
 test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 
 
-# In[ ]:
+# In[1005]:
 
 
 value = st.slider(
@@ -531,50 +531,39 @@ st.write('Estimated Sleep:', value)
 test_data["Total Sleep Duration"] = value
 
 
-# In[ ]:
+# In[1006]:
 
 
-##st.write('Based on your estimated sleep, your readiness score is prediced to be: ', model.predict(test_data))
 st.header('Based on your estimated sleep, your readiness score is prediced to be: ')
-st.markdown("""
-<style>
-.big-font {
-    font-size:300px !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown('<p class="big-font">model.predict(test_data)/p>', unsafe_allow_html=True)
-
 st.markdown(model.predict(test_data))
 
 
-# In[ ]:
+# In[1007]:
 
 
 sleep_hours_pred = float(input("How many hours of planned sleep? "))
 print(sleep_hours_pred)
 
 
-# In[ ]:
+# In[1008]:
 
 
 test_data
 
 
-# In[ ]:
+# In[1009]:
 
 
 test_data["Total Sleep Duration"] = sleep_hours_pred
 test_data
 
 
-# In[ ]:
+# In[1010]:
 
 
 model.predict(test_data)
 
 
-# In[ ]:
+# In[1011]:
 
 
