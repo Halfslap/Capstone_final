@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[274]:
+# In[380]:
 
 
 import pandas as pd
@@ -13,7 +13,7 @@ from plotly import graph_objects
 import streamlit as st
 
 
-# In[275]:
+# In[381]:
 
 
 ##st.text('Fixed width text')
@@ -29,28 +29,28 @@ st.header('Student ID: 001411596')
 ##st.code('for i in range(8): foo()')
 
 
-# In[276]:
+# In[382]:
 
 
 pd_ver = pd.__version__
 st.write("Pandas version: ", pd_ver)
 
 
-# In[277]:
+# In[383]:
 
 
 np_ver = np.__version__
 st.write("Numpy version: ", np_ver)
 
 
-# In[278]:
+# In[384]:
 
 
 st_ver = st.__version__
 st.write("Streamlit version: ", st_ver)
 
 
-# In[279]:
+# In[385]:
 
 
 plt_ver = matplotlib.__version__
@@ -59,7 +59,7 @@ st.write("Matplotlib version: ", plt_ver)
 
 # ## Import data
 
-# In[280]:
+# In[386]:
 
 
 # Import Data
@@ -68,13 +68,13 @@ health_data = pd.read_csv("New Data/oura_2019-01-01_2023-09-09_trends_Original.c
 
 # ## View data
 
-# In[281]:
+# In[387]:
 
 
 st.header('Imported Data')
 
 
-# In[282]:
+# In[388]:
 
 
 health_data
@@ -82,7 +82,7 @@ health_data
 
 # ## Describe Data
 
-# In[283]:
+# In[389]:
 
 
 # health_data.dtypes;
@@ -90,7 +90,7 @@ health_data
 
 # ## Set up dataframe
 
-# In[284]:
+# In[390]:
 
 
 df = pd.DataFrame(health_data)
@@ -98,20 +98,20 @@ df = pd.DataFrame(health_data)
 
 # ## Convert Sleep Duration and Rest Time to hours
 
-# In[285]:
+# In[391]:
 
 
 df["Total Sleep Duration"] = df["Total Sleep Duration"] / 3600
 df["Rest Time"] = df["Rest Time"] / 3600
 
 
-# In[286]:
+# In[392]:
 
 
 pd.crosstab(df["Total Sleep Duration"] > 7, df["Readiness Score"] >85)
 
 
-# In[287]:
+# In[393]:
 
 
 df["Readiness Score"].hist(figsize=(10, 10))
@@ -119,20 +119,20 @@ df["Readiness Score"].hist(figsize=(10, 10))
 
 # ## Manipulating Data
 
-# In[288]:
+# In[394]:
 
 
 df.dropna(inplace=True)
 
 
-# In[289]:
+# In[395]:
 
 
 # Randomize data 1 = 100%
 df.sample(frac=1)
 
 
-# In[290]:
+# In[396]:
 
 
 # Reset index if necessary
@@ -141,7 +141,7 @@ df.sample(frac=1)
 
 # ## Matplotlib
 
-# In[291]:
+# In[397]:
 
 
 # 1. Prepare data
@@ -163,7 +163,7 @@ ax.set(title="Simple Plot",
 fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_1.png")
 
 
-# In[292]:
+# In[398]:
 
 
 # 1. Prepare data
@@ -186,7 +186,7 @@ ax.set(title="Simple Plot",
 fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_2.png")
 
 
-# In[293]:
+# In[399]:
 
 
 # 1. Prepare data
@@ -208,7 +208,7 @@ ax.set(title="Simple Plot",
 fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_3.png")
 
 
-# In[294]:
+# In[400]:
 
 
 # 1. Prepare data
@@ -230,7 +230,7 @@ ax.set(title="Simple Plot",
 fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_4.png")
 
 
-# In[295]:
+# In[401]:
 
 
 # 1. Prepare data
@@ -252,7 +252,7 @@ ax.set(title="Simple Plot",
 fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_5.png")
 
 
-# In[296]:
+# In[402]:
 
 
 # 1. Prepare data
@@ -274,7 +274,7 @@ ax.set(title="Simple Plot",
 fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_6.png")
 
 
-# In[297]:
+# In[403]:
 
 
 # 1. Prepare data
@@ -296,7 +296,7 @@ ax.set(title="Simple Plot",
 fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_7.png")
 
 
-# In[298]:
+# In[404]:
 
 
 # 1. Prepare data
@@ -318,7 +318,7 @@ ax.set(title="Simple Plot",
 fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_8.png")
 
 
-# In[299]:
+# In[405]:
 
 
 # 1. Prepare data
@@ -340,7 +340,7 @@ ax.set(title="Simple Plot",
 fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_9.png")
 
 
-# In[300]:
+# In[406]:
 
 
 # 1. Prepare data
@@ -362,42 +362,42 @@ ax.set(title="Simple Plot",
 fig.savefig("C:/Users/McLovin/miniconda3/envs/spyder_env/Capstone/Capstone/Figures/Figure_10.png")
 
 
-# In[301]:
+# In[407]:
 
 
-st.image("Figures/Figure_1.png")
-st.image("Figures/Figure_8.png")
-st.image("Figures/Figure_10.png")
+#st.image('Figures/Figure_1.png')
+#st.image('Figures/Figure_8.png')
+#st.image('Figures/Figure_10.png')
 
 
 # ## Remove data columns that are lagging data fields or not necessary
 
-# In[302]:
+# In[408]:
 
 
 df.drop(df.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[303]:
+# In[409]:
 
 
 df.info()
 
 
-# In[304]:
+# In[410]:
 
 
 df.describe()
 
 
-# In[305]:
+# In[411]:
 
 
 # Average Readiness Score
 df["Readiness Score"].mean()
 
 
-# In[306]:
+# In[412]:
 
 
 len(df)
@@ -405,7 +405,7 @@ len(df)
 
 # ## Algorithm/Estimator
 
-# In[307]:
+# In[413]:
 
 
 # Import algorithm/estimator
@@ -430,31 +430,31 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
-# In[308]:
+# In[414]:
 
 
 model.get_params()
 
 
-# In[309]:
+# In[415]:
 
 
 model.fit(X_train, y_train);
 
 
-# In[310]:
+# In[416]:
 
 
 y_preds = model.predict(X_test)
 
 
-# In[311]:
+# In[417]:
 
 
 model.score(X_test, y_test)
 
 
-# In[312]:
+# In[418]:
 
 
 # Try Ridge Regression
@@ -468,13 +468,13 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 
-# In[313]:
+# In[419]:
 
 
 model.get_params()
 
 
-# In[314]:
+# In[420]:
 
 
 from sklearn import linear_model
@@ -487,20 +487,20 @@ model.score(X_test, y_test)
 
 # ## Make Predictions Using Machine Language Model
 
-# In[315]:
+# In[421]:
 
 
 test_data = pd.read_csv("New Data/oura_2023-09-17_2023-09-17_trends.csv")
 
 
-# In[316]:
+# In[422]:
 
 
 test_data.drop(test_data.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 test_data.info()
 
 
-# In[317]:
+# In[423]:
 
 
 ## Remove Readiness Score
@@ -508,20 +508,20 @@ test_data.drop(test_data.columns[2], axis=1, inplace=True)
 test_data.info()
 
 
-# In[318]:
+# In[424]:
 
 
 test_data.info()
 
 
-# In[319]:
+# In[425]:
 
 
 ## Convert Total Sleep Duration to hours
 test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 
 
-# In[320]:
+# In[426]:
 
 
 value = st.slider(
@@ -531,38 +531,38 @@ st.write('Estimated Sleep:', value)
 test_data["Total Sleep Duration"] = value
 
 
-# In[321]:
+# In[427]:
 
 
 st.write('Based on your estimated sleep, your readiness score is prediced to be: ', model.predict(test_data))
 
 
-# In[322]:
+# In[428]:
 
 
 sleep_hours_pred = float(input("How many hours of planned sleep? "))
 print(sleep_hours_pred)
 
 
-# In[323]:
+# In[429]:
 
 
 test_data
 
 
-# In[324]:
+# In[430]:
 
 
 test_data["Total Sleep Duration"] = sleep_hours_pred
 test_data
 
 
-# In[325]:
+# In[431]:
 
 
 model.predict(test_data)
 
 
-# In[326]:
+# In[ ]:
 
 
