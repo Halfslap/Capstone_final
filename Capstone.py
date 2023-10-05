@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[308]:
+# In[498]:
 
 
 import pandas as pd
@@ -15,7 +15,7 @@ import streamlit as st
 
 # ## My Info
 
-# In[309]:
+# In[499]:
 
 
 st.title('Computer Science Capstone — C964')
@@ -25,28 +25,28 @@ st.header('Student ID: 001411596')
 
 # ## Version Info
 
-# In[310]:
+# In[500]:
 
 
 pd_ver = pd.__version__
 st.write("Pandas version: ", pd_ver)
 
 
-# In[311]:
+# In[501]:
 
 
 np_ver = np.__version__
 st.write("Numpy version: ", np_ver)
 
 
-# In[312]:
+# In[502]:
 
 
 st_ver = st.__version__
 st.write("Streamlit version: ", st_ver)
 
 
-# In[313]:
+# In[503]:
 
 
 plt_ver = matplotlib.__version__
@@ -55,7 +55,7 @@ st.write("Matplotlib version: ", plt_ver)
 
 # ## Import data
 
-# In[314]:
+# In[504]:
 
 
 # Import Data
@@ -64,13 +64,13 @@ health_data = pd.read_csv("New Data/oura_2019-01-01_2023-09-09_trends_Original.c
 
 # ## View data
 
-# In[315]:
+# In[505]:
 
 
 st.header('Imported Data')
 
 
-# In[316]:
+# In[506]:
 
 
 health_data
@@ -78,7 +78,7 @@ health_data
 
 # ## Describe Data
 
-# In[317]:
+# In[507]:
 
 
 # health_data.dtypes
@@ -86,7 +86,7 @@ health_data
 
 # ## Set up dataframe
 
-# In[318]:
+# In[508]:
 
 
 df = pd.DataFrame(health_data)
@@ -94,20 +94,20 @@ df = pd.DataFrame(health_data)
 
 # ## Convert Sleep Duration and Rest Time to hours
 
-# In[319]:
+# In[509]:
 
 
 df["Total Sleep Duration"] = df["Total Sleep Duration"] / 3600
 df["Rest Time"] = df["Rest Time"] / 3600
 
 
-# In[320]:
+# In[510]:
 
 
 pd.crosstab(df["Total Sleep Duration"] > 7, df["Readiness Score"] >85)
 
 
-# In[321]:
+# In[511]:
 
 
 df["Readiness Score"].hist(figsize=(10, 10))
@@ -115,20 +115,20 @@ df["Readiness Score"].hist(figsize=(10, 10))
 
 # ## Manipulating Data
 
-# In[322]:
+# In[512]:
 
 
 df.dropna(inplace=True)
 
 
-# In[323]:
+# In[513]:
 
 
 # Randomize data 1 = 100%
 df.sample(frac=1)
 
 
-# In[324]:
+# In[514]:
 
 
 # Reset index if necessary
@@ -137,7 +137,7 @@ df.sample(frac=1)
 
 # ## Matplotlib
 
-# In[325]:
+# In[515]:
 
 
 # 1. Prepare data
@@ -159,7 +159,7 @@ ax.set(title="Total Sleep vs. Readiness",
 fig.savefig("Figures/Figure_1.png")
 
 
-# In[326]:
+# In[516]:
 
 
 # 1. Prepare data
@@ -182,7 +182,7 @@ ax.set(title="Previous Night Sleep vs Readiness",
 fig.savefig("Figures/Figure_2.png")
 
 
-# In[327]:
+# In[517]:
 
 
 # 1. Prepare data
@@ -204,7 +204,7 @@ ax.set(title="Move Every Hour vs Readiness",
 fig.savefig("Figures/Figure_3.png")
 
 
-# In[328]:
+# In[518]:
 
 
 # 1. Prepare data
@@ -226,7 +226,7 @@ ax.set(title="Non-wear vs Readiness",
 fig.savefig("Figures/Figure_4.png")
 
 
-# In[329]:
+# In[519]:
 
 
 # 1. Prepare data
@@ -248,7 +248,7 @@ ax.set(title="Rest Time vs Readiness",
 fig.savefig("Figures/Figure_5.png")
 
 
-# In[330]:
+# In[520]:
 
 
 # 1. Prepare data
@@ -270,7 +270,7 @@ ax.set(title="Previous Day Activity vs Readiness",
 fig.savefig("Figures/Figure_6.png")
 
 
-# In[331]:
+# In[521]:
 
 
 # 1. Prepare data
@@ -292,7 +292,7 @@ ax.set(title="Activity Score vs Readiness",
 fig.savefig("Figures/Figure_7.png")
 
 
-# In[332]:
+# In[522]:
 
 
 # 1. Prepare data
@@ -314,7 +314,7 @@ ax.set(title="Resting Heart Rate vs Readiness",
 fig.savefig("Figures/Figure_8.png")
 
 
-# In[333]:
+# In[523]:
 
 
 # 1. Prepare data
@@ -336,7 +336,7 @@ ax.set(title="Temperature vs Readiness",
 fig.savefig("Figures/Figure_9.png")
 
 
-# In[334]:
+# In[524]:
 
 
 # 1. Prepare data
@@ -358,13 +358,13 @@ ax.set(title="HRV Balance vs Readiness",
 fig.savefig("Figures/Figure_10.png")
 
 
-# In[335]:
+# In[525]:
 
 
 st.header('Relevent Data')
 
 
-# In[336]:
+# In[526]:
 
 
 st.image('Figures/Figure_1.png')
@@ -376,13 +376,13 @@ st.image('Figures/Figure_10.png')
 
 # ## Remove data columns that are lagging data fields or not necessary
 
-# In[337]:
+# In[527]:
 
 
 df.drop(df.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[338]:
+# In[528]:
 
 
 df.info()
@@ -390,7 +390,7 @@ df.info()
 
 # ## Describe Relevent Data
 
-# In[339]:
+# In[529]:
 
 
 st.header('Describe Relevent Data')
@@ -400,7 +400,7 @@ df.describe()
 
 # ## Algorithm/Estimator
 
-# In[340]:
+# In[530]:
 
 
 # Import algorithm/estimator
@@ -425,31 +425,31 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
-# In[341]:
+# In[531]:
 
 
 model.get_params()
 
 
-# In[342]:
+# In[532]:
 
 
 model.fit(X_train, y_train);
 
 
-# In[343]:
+# In[533]:
 
 
 y_preds = model.predict(X_test)
 
 
-# In[344]:
+# In[534]:
 
 
 model.score(X_test, y_test)
 
 
-# In[345]:
+# In[535]:
 
 
 # Try Ridge Regression
@@ -463,13 +463,13 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 
-# In[346]:
+# In[536]:
 
 
 model.get_params()
 
 
-# In[347]:
+# In[537]:
 
 
 from sklearn import linear_model
@@ -484,19 +484,19 @@ model.score(X_test, y_test)
 
 # ## Pick Typical Day (9/17/2023)
 
-# In[348]:
+# In[538]:
 
 
 test_data = pd.read_csv("New Data/oura_2023-09-17_2023-09-17_trends.csv")
 
 
-# In[349]:
+# In[539]:
 
 
 test_data.drop(test_data.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[350]:
+# In[540]:
 
 
 ## Remove Readiness Score
@@ -504,21 +504,21 @@ test_data.drop(test_data.columns[2], axis=1, inplace=True)
 test_data.info()
 
 
-# In[351]:
+# In[541]:
 
 
 ## Convert Total Sleep Duration to hours
 test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 
 
-# In[352]:
+# In[542]:
 
 
 st.header('Data for a Typical Day (9/17/2023)')
 st.write(test_data)
 
 
-# In[353]:
+# In[543]:
 
 
 value = st.slider(
@@ -528,13 +528,26 @@ st.write('Estimated Sleep:', value)
 test_data["Total Sleep Duration"] = value
 
 
-# In[354]:
+# In[544]:
 
 
 st.header('Based on your estimated sleep, your readiness score for 9/18/23 is prediced to be: ')
-st.markdown(model.predict(test_data))
+variable_output = st.text_input("Enter some text", value="Streamlit is awesome")
+font_size = st.slider("Enter a font size", 1, 300, value=30)
+
+html_str = f"""
+<style>
+p.a {{
+  font: bold {font_size}px Courier;
+}}
+</style>
+<p class="a">{variable_output}</p>
+"""
+
+st.markdown(html_str, unsafe_allow_html=True)
+# st.markdown(model.predict(test_data))
 
 
-# In[355]:
+# In[ ]:
 
 
