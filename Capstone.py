@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[209]:
+# In[259]:
 
 
 import pandas as pd
@@ -15,7 +15,7 @@ import streamlit as st
 
 # ## My Info
 
-# In[210]:
+# In[260]:
 
 
 st.title('Computer Science Capstone — C964')
@@ -25,28 +25,28 @@ st.header('Student ID: 001411596')
 
 # ## Version Info
 
-# In[211]:
+# In[261]:
 
 
 pd_ver = pd.__version__
 st.write("Pandas version: ", pd_ver)
 
 
-# In[212]:
+# In[262]:
 
 
 np_ver = np.__version__
 st.write("Numpy version: ", np_ver)
 
 
-# In[213]:
+# In[263]:
 
 
 st_ver = st.__version__
 st.write("Streamlit version: ", st_ver)
 
 
-# In[214]:
+# In[264]:
 
 
 plt_ver = matplotlib.__version__
@@ -55,7 +55,7 @@ st.write("Matplotlib version: ", plt_ver)
 
 # ## Import data
 
-# In[215]:
+# In[265]:
 
 
 # Import Data
@@ -64,13 +64,13 @@ health_data = pd.read_csv("New Data/oura_2019-01-01_2023-09-09_trends_Original.c
 
 # ## View data
 
-# In[216]:
+# In[266]:
 
 
 st.header('Imported Data')
 
 
-# In[217]:
+# In[267]:
 
 
 health_data
@@ -78,15 +78,15 @@ health_data
 
 # ## Describe Data
 
-# In[218]:
+# In[307]:
 
 
-health_data.dtypes
+# health_data.dtypes
 
 
 # ## Set up dataframe
 
-# In[219]:
+# In[269]:
 
 
 df = pd.DataFrame(health_data)
@@ -94,20 +94,20 @@ df = pd.DataFrame(health_data)
 
 # ## Convert Sleep Duration and Rest Time to hours
 
-# In[220]:
+# In[270]:
 
 
 df["Total Sleep Duration"] = df["Total Sleep Duration"] / 3600
 df["Rest Time"] = df["Rest Time"] / 3600
 
 
-# In[221]:
+# In[271]:
 
 
 pd.crosstab(df["Total Sleep Duration"] > 7, df["Readiness Score"] >85)
 
 
-# In[222]:
+# In[272]:
 
 
 df["Readiness Score"].hist(figsize=(10, 10))
@@ -115,20 +115,20 @@ df["Readiness Score"].hist(figsize=(10, 10))
 
 # ## Manipulating Data
 
-# In[223]:
+# In[273]:
 
 
 df.dropna(inplace=True)
 
 
-# In[224]:
+# In[274]:
 
 
 # Randomize data 1 = 100%
 df.sample(frac=1)
 
 
-# In[225]:
+# In[275]:
 
 
 # Reset index if necessary
@@ -137,7 +137,7 @@ df.sample(frac=1)
 
 # ## Matplotlib
 
-# In[226]:
+# In[276]:
 
 
 # 1. Prepare data
@@ -159,7 +159,7 @@ ax.set(title="Total Sleep vs. Readiness",
 fig.savefig("Figures/Figure_1.png")
 
 
-# In[227]:
+# In[277]:
 
 
 # 1. Prepare data
@@ -182,7 +182,7 @@ ax.set(title="Previous Night Sleep vs Readiness",
 fig.savefig("Figures/Figure_2.png")
 
 
-# In[228]:
+# In[278]:
 
 
 # 1. Prepare data
@@ -204,7 +204,7 @@ ax.set(title="Move Every Hour vs Readiness",
 fig.savefig("Figures/Figure_3.png")
 
 
-# In[229]:
+# In[279]:
 
 
 # 1. Prepare data
@@ -226,7 +226,7 @@ ax.set(title="Non-wear vs Readiness",
 fig.savefig("Figures/Figure_4.png")
 
 
-# In[230]:
+# In[280]:
 
 
 # 1. Prepare data
@@ -248,7 +248,7 @@ ax.set(title="Rest Time vs Readiness",
 fig.savefig("Figures/Figure_5.png")
 
 
-# In[231]:
+# In[281]:
 
 
 # 1. Prepare data
@@ -270,7 +270,7 @@ ax.set(title="Previous Day Activity vs Readiness",
 fig.savefig("Figures/Figure_6.png")
 
 
-# In[232]:
+# In[282]:
 
 
 # 1. Prepare data
@@ -292,7 +292,7 @@ ax.set(title="Activity Score vs Readiness",
 fig.savefig("Figures/Figure_7.png")
 
 
-# In[233]:
+# In[283]:
 
 
 # 1. Prepare data
@@ -314,7 +314,7 @@ ax.set(title="Resting Heart Rate vs Readiness",
 fig.savefig("Figures/Figure_8.png")
 
 
-# In[234]:
+# In[284]:
 
 
 # 1. Prepare data
@@ -336,7 +336,7 @@ ax.set(title="Temperature vs Readiness",
 fig.savefig("Figures/Figure_9.png")
 
 
-# In[235]:
+# In[285]:
 
 
 # 1. Prepare data
@@ -358,13 +358,13 @@ ax.set(title="HRV Balance vs Readiness",
 fig.savefig("Figures/Figure_10.png")
 
 
-# In[236]:
+# In[286]:
 
 
 st.header('Relevent Data')
 
 
-# In[237]:
+# In[287]:
 
 
 st.image('Figures/Figure_1.png')
@@ -376,13 +376,13 @@ st.image('Figures/Figure_10.png')
 
 # ## Remove data columns that are lagging data fields or not necessary
 
-# In[238]:
+# In[288]:
 
 
 df.drop(df.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[239]:
+# In[289]:
 
 
 df.info()
@@ -390,7 +390,7 @@ df.info()
 
 # ## Describe Relevent Data
 
-# In[240]:
+# In[290]:
 
 
 st.header('Describe Relevent Data')
@@ -400,7 +400,7 @@ df.describe()
 
 # ## Algorithm/Estimator
 
-# In[243]:
+# In[291]:
 
 
 # Import algorithm/estimator
@@ -425,31 +425,31 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
-# In[244]:
+# In[292]:
 
 
 model.get_params()
 
 
-# In[245]:
+# In[293]:
 
 
 model.fit(X_train, y_train);
 
 
-# In[246]:
+# In[294]:
 
 
 y_preds = model.predict(X_test)
 
 
-# In[247]:
+# In[295]:
 
 
 model.score(X_test, y_test)
 
 
-# In[248]:
+# In[296]:
 
 
 # Try Ridge Regression
@@ -463,13 +463,13 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 
-# In[249]:
+# In[297]:
 
 
 model.get_params()
 
 
-# In[250]:
+# In[298]:
 
 
 from sklearn import linear_model
@@ -484,19 +484,19 @@ model.score(X_test, y_test)
 
 # ## Pick Typical Day (9/17/2023)
 
-# In[251]:
+# In[299]:
 
 
 test_data = pd.read_csv("New Data/oura_2023-09-17_2023-09-17_trends.csv")
 
 
-# In[252]:
+# In[300]:
 
 
 test_data.drop(test_data.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[253]:
+# In[301]:
 
 
 ## Remove Readiness Score
@@ -504,21 +504,21 @@ test_data.drop(test_data.columns[2], axis=1, inplace=True)
 test_data.info()
 
 
-# In[254]:
-
-
-st.header('Data for a Typical Day (9/17/2023)')
-st.write(test_data)
-
-
-# In[255]:
+# In[303]:
 
 
 ## Convert Total Sleep Duration to hours
 test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 
 
-# In[256]:
+# In[ ]:
+
+
+st.header('Data for a Typical Day (9/17/2023)')
+st.write(test_data)
+
+
+# In[304]:
 
 
 value = st.slider(
@@ -528,13 +528,13 @@ st.write('Estimated Sleep:', value)
 test_data["Total Sleep Duration"] = value
 
 
-# In[257]:
+# In[305]:
 
 
 st.header('Based on your estimated sleep, your readiness score for 9/24/23 is prediced to be: ')
 st.markdown(model.predict(test_data))
 
 
-# In[258]:
+# In[306]:
 
 
