@@ -16,17 +16,9 @@ import streamlit as st
 # In[1066]:
 
 
-##st.text('Fixed width text')
-##st.markdown('_Markdown_') # see #*
-##st.caption('Balloons. Hundreds of them...')
-##st.latex(r''' e^{i\pi} + 1 = 0 ''')
-##st.write('Most objects') # df, err, func, keras!
-##st.write(['st', 'is <', 3]) # see *
 st.title('Computer Science Capstone — C964')
 st.header('Student – Mark Nefzger')
 st.header('Student ID: 001411596')
-##st.subheader('My sub')
-##st.code('for i in range(8): foo()')
 
 
 # In[1067]:
@@ -155,7 +147,7 @@ fig, ax = plt.subplots(figsize=(10, 10))
 ax.scatter(x,y)
 
 # 4. Customize plot
-ax.set(title="Simple Plot", 
+ax.set(title="Total Sleep vs. Readiness", 
        xlabel="Total Sleep Duration",
        ylabel="Readiness Score")
 
@@ -178,7 +170,7 @@ ax.scatter(x,y)
 
 
 # 4. Customize plot
-ax.set(title="Simple Plot", 
+ax.set(title="Previous Night Sleep vs Readiness", 
        xlabel="Previous Night Score",
        ylabel="Readiness Score")
 
@@ -200,7 +192,7 @@ fig, ax = plt.subplots(figsize=(10, 10))
 ax.scatter(x,y)
 
 # 4. Customize plot
-ax.set(title="Simple Plot", 
+ax.set(title="Move Every Hour vs Readiness", 
        xlabel="Move Every Hour Score",
        ylabel="Readiness Score")
 
@@ -222,7 +214,7 @@ fig, ax = plt.subplots(figsize=(10, 10))
 ax.scatter(x,y)
 
 # 4. Customize plot
-ax.set(title="Simple Plot", 
+ax.set(title="Non-wear vs Readiness", 
        xlabel="Non-wear Time",
        ylabel="Readiness Score")
 
@@ -244,7 +236,7 @@ fig, ax = plt.subplots(figsize=(10, 10))
 ax.scatter(x,y)
 
 # 4. Customize plot
-ax.set(title="Simple Plot", 
+ax.set(title="Rest Time vs Readiness", 
        xlabel="Rest Time",
        ylabel="Readiness Score")
 
@@ -266,7 +258,7 @@ fig, ax = plt.subplots(figsize=(10, 10))
 ax.scatter(x,y)
 
 # 4. Customize plot
-ax.set(title="Simple Plot", 
+ax.set(title="Previous Day Activity vs Readiness", 
        xlabel="Previous Day Activity Score",
        ylabel="Readiness Score")
 
@@ -288,7 +280,7 @@ fig, ax = plt.subplots(figsize=(10, 10))
 ax.scatter(x,y)
 
 # 4. Customize plot
-ax.set(title="Simple Plot", 
+ax.set(title="Activity Score vs Readiness", 
        xlabel="Activity Score",
        ylabel="Readiness Score")
 
@@ -296,7 +288,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_7.png")
 
 
-# In[ ]:
+# In[1089]:
 
 
 # 1. Prepare data
@@ -310,7 +302,7 @@ fig, ax = plt.subplots(figsize=(10, 10))
 ax.scatter(x,y)
 
 # 4. Customize plot
-ax.set(title="Simple Plot", 
+ax.set(title="Resting Heart Rate vs Readiness", 
        xlabel="Resting Heart Rate Score",
        ylabel="Readiness Score")
 
@@ -318,7 +310,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_8.png")
 
 
-# In[ ]:
+# In[1090]:
 
 
 # 1. Prepare data
@@ -332,7 +324,7 @@ fig, ax = plt.subplots(figsize=(10, 10))
 ax.scatter(x,y)
 
 # 4. Customize plot
-ax.set(title="Simple Plot", 
+ax.set(title="Temperature vs Readiness", 
        xlabel="Temperature Score",
        ylabel="Readiness Score")
 
@@ -340,7 +332,7 @@ ax.set(title="Simple Plot",
 fig.savefig("Figures/Figure_9.png")
 
 
-# In[ ]:
+# In[1091]:
 
 
 # 1. Prepare data
@@ -354,7 +346,7 @@ fig, ax = plt.subplots(figsize=(10, 10))
 ax.scatter(x,y)
 
 # 4. Customize plot
-ax.set(title="Simple Plot", 
+ax.set(title="HRV Balance vs Readiness", 
        xlabel="HRV Balance Score",
        ylabel="Readiness Score")
 
@@ -365,39 +357,47 @@ fig.savefig("Figures/Figure_10.png")
 # In[ ]:
 
 
+st.header('Relevent Data')
+
+
+# In[1092]:
+
+
 st.image('Figures/Figure_1.png')
+st.image('Figures/Figure_7.png')
 st.image('Figures/Figure_8.png')
+st.image('Figures/Figure_9.png')
 st.image('Figures/Figure_10.png')
 
 
 # ## Remove data columns that are lagging data fields or not necessary
 
-# In[ ]:
+# In[1093]:
 
 
 df.drop(df.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[ ]:
+# In[1094]:
 
 
 df.info()
 
 
-# In[ ]:
+# In[1095]:
 
 
 df.describe()
 
 
-# In[ ]:
+# In[1096]:
 
 
 # Average Readiness Score
 df["Readiness Score"].mean()
 
 
-# In[ ]:
+# In[1097]:
 
 
 len(df)
@@ -405,7 +405,7 @@ len(df)
 
 # ## Algorithm/Estimator
 
-# In[ ]:
+# In[1098]:
 
 
 # Import algorithm/estimator
@@ -430,31 +430,31 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
-# In[ ]:
+# In[1099]:
 
 
 model.get_params()
 
 
-# In[ ]:
+# In[1100]:
 
 
 model.fit(X_train, y_train);
 
 
-# In[ ]:
+# In[1101]:
 
 
 y_preds = model.predict(X_test)
 
 
-# In[ ]:
+# In[1102]:
 
 
 model.score(X_test, y_test)
 
 
-# In[ ]:
+# In[1103]:
 
 
 # Try Ridge Regression
@@ -468,13 +468,13 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 
-# In[ ]:
+# In[1104]:
 
 
 model.get_params()
 
 
-# In[ ]:
+# In[1105]:
 
 
 from sklearn import linear_model
@@ -487,20 +487,20 @@ model.score(X_test, y_test)
 
 # ## Make Predictions Using Machine Language Model
 
-# In[ ]:
+# In[1106]:
 
 
 test_data = pd.read_csv("New Data/oura_2023-09-17_2023-09-17_trends.csv")
 
 
-# In[ ]:
+# In[1107]:
 
 
 test_data.drop(test_data.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 test_data.info()
 
 
-# In[ ]:
+# In[1108]:
 
 
 ## Remove Readiness Score
@@ -508,20 +508,20 @@ test_data.drop(test_data.columns[2], axis=1, inplace=True)
 test_data.info()
 
 
-# In[ ]:
+# In[1109]:
 
 
 test_data.info()
 
 
-# In[ ]:
+# In[1110]:
 
 
 ## Convert Total Sleep Duration to hours
 test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 
 
-# In[ ]:
+# In[1111]:
 
 
 value = st.slider(
@@ -531,39 +531,39 @@ st.write('Estimated Sleep:', value)
 test_data["Total Sleep Duration"] = value
 
 
-# In[ ]:
+# In[1112]:
 
 
 st.header('Based on your estimated sleep, your readiness score is prediced to be: ')
 st.markdown(model.predict(test_data))
 
 
-# In[ ]:
+# In[1113]:
 
 
 sleep_hours_pred = float(input("How many hours of planned sleep? "))
 print(sleep_hours_pred)
 
 
-# In[ ]:
+# In[1114]:
 
 
 test_data
 
 
-# In[ ]:
+# In[1115]:
 
 
 test_data["Total Sleep Duration"] = sleep_hours_pred
 test_data
 
 
-# In[ ]:
+# In[1116]:
 
 
 model.predict(test_data)
 
 
-# In[ ]:
+# In[1117]:
 
 
