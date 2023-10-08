@@ -110,7 +110,7 @@ pd.crosstab(df["Total Sleep Duration"] > 7, df["Readiness Score"] >85)
 # In[14]:
 
 
-plt.show(df["Readiness Score"].hist(figsize=(10, 10)))
+(df["Readiness Score"].hist(figsize=(10, 10)))
 
 
 # ## Manipulating Data
@@ -159,7 +159,7 @@ ax.set(title="Total Sleep vs. Readiness",
 fig.savefig("Figures/Figure_1.png")
 
 
-# In[ ]:
+# In[19]:
 
 
 # 1. Prepare data
@@ -182,7 +182,7 @@ ax.set(title="Previous Night Sleep vs Readiness",
 fig.savefig("Figures/Figure_2.png")
 
 
-# In[ ]:
+# In[20]:
 
 
 # 1. Prepare data
@@ -204,7 +204,7 @@ ax.set(title="Move Every Hour vs Readiness",
 fig.savefig("Figures/Figure_3.png")
 
 
-# In[ ]:
+# In[21]:
 
 
 # 1. Prepare data
@@ -226,7 +226,7 @@ ax.set(title="Non-wear vs Readiness",
 fig.savefig("Figures/Figure_4.png")
 
 
-# In[ ]:
+# In[22]:
 
 
 # 1. Prepare data
@@ -248,7 +248,7 @@ ax.set(title="Rest Time vs Readiness",
 fig.savefig("Figures/Figure_5.png")
 
 
-# In[ ]:
+# In[23]:
 
 
 # 1. Prepare data
@@ -270,7 +270,7 @@ ax.set(title="Previous Day Activity vs Readiness",
 fig.savefig("Figures/Figure_6.png")
 
 
-# In[ ]:
+# In[24]:
 
 
 # 1. Prepare data
@@ -292,7 +292,7 @@ ax.set(title="Activity Score vs Readiness",
 fig.savefig("Figures/Figure_7.png")
 
 
-# In[ ]:
+# In[25]:
 
 
 # 1. Prepare data
@@ -314,7 +314,7 @@ ax.set(title="Resting Heart Rate vs Readiness",
 fig.savefig("Figures/Figure_8.png")
 
 
-# In[ ]:
+# In[26]:
 
 
 # 1. Prepare data
@@ -336,7 +336,7 @@ ax.set(title="Temperature vs Readiness",
 fig.savefig("Figures/Figure_9.png")
 
 
-# In[ ]:
+# In[27]:
 
 
 # 1. Prepare data
@@ -358,13 +358,13 @@ ax.set(title="HRV Balance vs Readiness",
 fig.savefig("Figures/Figure_10.png")
 
 
-# In[ ]:
+# In[28]:
 
 
 st.header('Relevent Data')
 
 
-# In[ ]:
+# In[29]:
 
 
 st.image('Figures/Figure_1.png')
@@ -376,13 +376,13 @@ st.image('Figures/Figure_10.png')
 
 # ## Remove data columns that are lagging data fields or not necessary
 
-# In[ ]:
+# In[30]:
 
 
 df.drop(df.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[ ]:
+# In[31]:
 
 
 df.info()
@@ -390,7 +390,7 @@ df.info()
 
 # ## Describe Relevent Data
 
-# In[ ]:
+# In[32]:
 
 
 st.header('Describe Relevent Data')
@@ -400,7 +400,7 @@ df.describe()
 
 # ## Algorithm/Estimator
 
-# In[ ]:
+# In[33]:
 
 
 # Import algorithm/estimator
@@ -425,31 +425,31 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
-# In[ ]:
+# In[34]:
 
 
 model.get_params()
 
 
-# In[ ]:
+# In[35]:
 
 
 model.fit(X_train, y_train);
 
 
-# In[ ]:
+# In[36]:
 
 
 y_preds = model.predict(X_test)
 
 
-# In[ ]:
+# In[37]:
 
 
 model.score(X_test, y_test)
 
 
-# In[ ]:
+# In[38]:
 
 
 # Try Ridge Regression
@@ -463,13 +463,13 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 
-# In[ ]:
+# In[39]:
 
 
 model.get_params()
 
 
-# In[ ]:
+# In[40]:
 
 
 from sklearn import linear_model
@@ -484,19 +484,19 @@ model.score(X_test, y_test) #Coefficient of determination of the prediction R^2
 
 # ## Pick Typical Day (9/17/2023)
 
-# In[ ]:
+# In[41]:
 
 
 test_data = pd.read_csv("New Data/oura_2023-09-17_2023-09-17_trends.csv")
 
 
-# In[ ]:
+# In[42]:
 
 
 test_data.drop(test_data.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[ ]:
+# In[43]:
 
 
 ## Remove Readiness Score
@@ -504,20 +504,20 @@ test_data.drop(test_data.columns[2], axis=1, inplace=True)
 test_data.info()
 
 
-# In[ ]:
+# In[44]:
 
 
 ## Convert Total Sleep Duration to hours
 test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 
 
-# In[ ]:
+# In[45]:
 
 
 st.header('Data for a Typical Day (9/17/2023)')
 
 
-# In[ ]:
+# In[46]:
 
 
 value = st.slider(
@@ -530,7 +530,7 @@ st.write(test_data)
 
 # ## Prediction: 
 
-# In[ ]:
+# In[47]:
 
 
 st.header('Based on your estimated sleep, your readiness score for 9/18/23 is prediced to be: ')
@@ -550,6 +550,6 @@ st.markdown(html_str, unsafe_allow_html=True)
 #value=model.predict(test_data)
 
 
-# In[ ]:
+# In[48]:
 
 
