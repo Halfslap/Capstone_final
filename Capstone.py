@@ -165,7 +165,7 @@ ax.set(title="Total Sleep vs. Readiness",
 fig.savefig("Figures/Figure_1.png")
 
 
-# In[ ]:
+# In[2212]:
 
 
 # 1. Prepare data
@@ -188,7 +188,7 @@ ax.set(title="Previous Night Sleep vs Readiness",
 fig.savefig("Figures/Figure_2.png")
 
 
-# In[ ]:
+# In[2213]:
 
 
 # 1. Prepare data
@@ -210,7 +210,7 @@ ax.set(title="Move Every Hour vs Readiness",
 fig.savefig("Figures/Figure_3.png")
 
 
-# In[ ]:
+# In[2214]:
 
 
 # 1. Prepare data
@@ -232,7 +232,7 @@ ax.set(title="Non-wear vs Readiness",
 fig.savefig("Figures/Figure_4.png")
 
 
-# In[ ]:
+# In[2215]:
 
 
 # 1. Prepare data
@@ -254,7 +254,7 @@ ax.set(title="Rest Time vs Readiness",
 fig.savefig("Figures/Figure_5.png")
 
 
-# In[ ]:
+# In[2216]:
 
 
 # 1. Prepare data
@@ -276,7 +276,7 @@ ax.set(title="Previous Day Activity vs Readiness",
 fig.savefig("Figures/Figure_6.png")
 
 
-# In[ ]:
+# In[2217]:
 
 
 # 1. Prepare data
@@ -298,7 +298,7 @@ ax.set(title="Activity Score vs Readiness",
 fig.savefig("Figures/Figure_7.png")
 
 
-# In[ ]:
+# In[2218]:
 
 
 # 1. Prepare data
@@ -320,7 +320,7 @@ ax.set(title="Resting Heart Rate vs Readiness",
 fig.savefig("Figures/Figure_8.png")
 
 
-# In[ ]:
+# In[2219]:
 
 
 # 1. Prepare data
@@ -342,7 +342,7 @@ ax.set(title="Temperature vs Readiness",
 fig.savefig("Figures/Figure_9.png")
 
 
-# In[ ]:
+# In[2220]:
 
 
 # 1. Prepare data
@@ -364,7 +364,7 @@ ax.set(title="HRV Balance vs Readiness",
 fig.savefig("Figures/Figure_10.png")
 
 
-# In[ ]:
+# In[2221]:
 
 
 # 1. Prepare data
@@ -386,13 +386,13 @@ ax.set(title="Temperature Trend Deviation vs Readiness",
 fig.savefig("Figures/Figure_11.png")
 
 
-# In[ ]:
+# In[2222]:
 
 
 st.header('Relevent Data')
 
 
-# In[ ]:
+# In[2223]:
 
 
 st.image('Figures/Figure_1.png')
@@ -404,13 +404,13 @@ st.image('Figures/Figure_10.png')
 
 # ## Remove data columns that are lagging data fields or not necessary
 
-# In[ ]:
+# In[2224]:
 
 
 df.drop(df.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,26,28,29,30,31,32,33,34,35,36,37,39,40,42,43,44,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[ ]:
+# In[2225]:
 
 
 df.info()
@@ -418,7 +418,7 @@ df.info()
 
 # ## Describe Relevent Data
 
-# In[ ]:
+# In[2226]:
 
 
 st.header('Describe Relevent Data')
@@ -428,7 +428,7 @@ df.describe()
 
 # ## Algorithm/Estimator
 
-# In[ ]:
+# In[2227]:
 
 
 # Import algorithm/estimator
@@ -453,31 +453,31 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
-# In[ ]:
+# In[2228]:
 
 
 model.get_params()
 
 
-# In[ ]:
+# In[2229]:
 
 
 model.fit(X_train, y_train);
 
 
-# In[ ]:
+# In[2230]:
 
 
 y_preds = model.predict(X_test)
 
 
-# In[ ]:
+# In[2231]:
 
 
 model.score(X_test, y_test)
 
 
-# In[ ]:
+# In[2232]:
 
 
 # Try LassoLars
@@ -490,7 +490,7 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test) #Coefficient of determination of the prediction R^2
 
 
-# In[ ]:
+# In[2233]:
 
 
 # Try Ridge Regression
@@ -504,7 +504,7 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 
-# In[ ]:
+# In[2234]:
 
 
 model.get_params()
@@ -514,19 +514,19 @@ model.get_params()
 
 # ## Pick Typical Day (2/20/2023)
 
-# In[ ]:
+# In[2235]:
 
 
 test_data = pd.read_csv("New Data/oura_2023-02-20_2023-02-20_trends.csv")
 
 
-# In[ ]:
+# In[2236]:
 
 
 test_data.drop(test_data.columns[[0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,26,28,29,30,31,32,33,34,35,36,37,39,40,42,43,44,47,48,49,53]], axis=1, inplace=True)
 
 
-# In[ ]:
+# In[2237]:
 
 
 ## Remove Readiness Score
@@ -534,7 +534,7 @@ test_data.drop(test_data.columns[5], axis=1, inplace=True) #Drop Readiness Score
 test_data.info()
 
 
-# In[ ]:
+# In[2238]:
 
 
 ## Convert Total Sleep Duration to hours
@@ -542,13 +542,13 @@ test_data["Total Sleep Duration"] = test_data["Total Sleep Duration"] / 3600
 test_data["Rest Time"] = test_data["Rest Time"] / 3600
 
 
-# In[ ]:
+# In[2239]:
 
 
 st.header('Data for a Typical Day (2/20/2023)')
 
 
-# In[ ]:
+# In[2240]:
 
 
 value = st.slider(
@@ -561,7 +561,7 @@ st.write(test_data)
 
 # ## Prediction: 
 
-# In[ ]:
+# In[2241]:
 
 
 st.header('Based on your estimated sleep, your readiness score for 2/21/23 is prediced to be: ')
@@ -581,12 +581,6 @@ st.markdown(html_str, unsafe_allow_html=True)
 #value=model.predict(test_data)
 
 
-# In[ ]:
-
-
-Prediction
-
-
-# In[ ]:
+# In[2243]:
 
 
